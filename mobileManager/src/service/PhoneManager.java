@@ -17,7 +17,7 @@ public class PhoneManager {
     private CheckInput checkInput = new CheckInput();
     private List<Phone> phoneList = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
-    private ProductRepository productRepository;
+    private static ProductRepository productRepository;
 
     public PhoneManager() {
         productRepository = new ProductRepository();
@@ -42,7 +42,7 @@ public class PhoneManager {
             System.out.print("Price (1 USD/product -> 10000 USD/product): ");
             Double price = checkInput.checkDouble(1, 10000);
 
-            Phone phone = new Phone(name, color, quantity, made, yearmanufacture, price);
+            Phone phone = new Phone(id, name, color, quantity, made, yearmanufacture, price);
             phoneList.add(phone);
             productRepository.saveFile(phoneList);
             System.out.print("Return MENU (selection 1) or Continue addPhone (selection #1) ?: ");
